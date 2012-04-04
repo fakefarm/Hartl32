@@ -1,7 +1,7 @@
 FirstApp::Application.routes.draw do
   
-  get "users/new"
-
+  # we removed -> get "users/new" <- and replaced with following;
+	resources :users
 	root to: 'static_pages#home'
 
 	# old way -> get "static_pages/help"	
