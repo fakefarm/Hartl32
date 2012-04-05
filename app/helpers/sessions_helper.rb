@@ -2,6 +2,7 @@ module SessionsHelper
 	def sign_in(user)
     cookies.permanent[:remember_token] = user.remember_token
     current_user = user
+		    flash[:success] = "A smooth sea never made a skilled mariner."
   end
 
   def signed_in?
@@ -23,4 +24,9 @@ module SessionsHelper
     User.find_by_remember_token(remember_token) unless remember_token.nil?
   end
 
+  def sign_out
+    current_user = nil
+    cookies.delete(:remember_token)
+    flash[:success] = "The hard road becomes the easy road. And the easy road becomes the hard road..."
+  end
 end
