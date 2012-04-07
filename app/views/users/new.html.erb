@@ -1,5 +1,5 @@
 <%= provide(:title, 'Sign up') %>
-<h1>you're naughty.</h1>
+<h1>...reinventing.self</h1>
 <h2>This form will not benefit you in the slightest.</h2>
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages' %>
@@ -8,19 +8,19 @@
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
 
-      <%= f.label :name %>
+      <%= f.label :name, "Sometimes people call funny names like..." %>
       <%= f.text_field :name %>
 
-      <%= f.label :email %>
+      <%= f.label :email, "My favorite fake email address is..." %>
       <%= f.text_field :email %>
 
-      <%= f.label :password %>
+      <%= f.label :password, "My mom calls me this when I'm in trouble" %>
       <%= f.password_field :password %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "No way, really!? Say it again, that was funny!" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Create my account", :class => "btn btn-large btn-primary" %>
+      <%= f.submit "Kill a kitten.", :class => "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

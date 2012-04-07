@@ -9,12 +9,21 @@ module SessionsHelper
     !current_user.nil?
   end
 
-	def current_user=(user)
-    @current_user = user
-  end
-
   def current_user
     @current_user ||= user_from_remember_token
+  end
+
+  def current_user?(user)
+    user == current_user
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    clear_return_to
+  end
+
+  def store_location
+    session[:return_to] = request.fullpath
   end
 
   private
@@ -28,5 +37,9 @@ module SessionsHelper
     current_user = nil
     cookies.delete(:remember_token)
     flash[:success] = "The hard road becomes the easy road. And the easy road becomes the hard road..."
+  end
+	
+	def clear_return_to
+    session.delete(:return_to)
   end
 end
